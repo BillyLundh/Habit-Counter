@@ -1,70 +1,208 @@
-# Getting Started with Create React App
+☕ Habit Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A cross-platform habit and consumption tracking application built with **SwiftUI**, **React**, **Firebase**, and **Bluetooth Low Energy**.
 
-## Available Scripts
+Track coffee, water, medication, exercise, and other daily habits using your phone, web browser, or even physical BLE buttons connected to an Arduino.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 iOS Application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* SwiftUI interface
+* Local storage using SwiftData
+* Firebase Authentication
+* Firebase Firestore integration
+* Daily goals and progress tracking
+* Streak tracking
+* Warning and danger thresholds
+* BLE button support
+* Physical habit logging using custom hardware
 
-### `npm test`
+### 💻 Web Application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React frontend
+* Firebase Authentication
+* Shared Firestore backend
+* Create habits
+* Log habits
+* Live updates using Firestore listeners
 
-### `npm run build`
+### 🔵 Bluetooth Hardware
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Arduino based BLE button controller
+* One-button habit logging
+* Configurable button mapping
+* Automatic event creation in the app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technology Stack
 
-### `npm run eject`
+### iOS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* SwiftUI
+* SwiftData
+* CoreBluetooth
+* Firebase Authentication
+* Firebase Firestore
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Web
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* React
+* Firebase Authentication
+* Firestore
+* Bootstrap 5
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Hardware
 
-## Learn More
+* Arduino
+* BLE module
+* Push buttons
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Architecture
 
-### Code Splitting
+```text
+iPhone App
+     ↓
+Firebase Firestore
+     ↑
+React Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The iOS app stores data locally using SwiftData for fast access while synchronizing important data with Firebase for cross-platform access.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Firestore Structure
 
-### Making a Progressive Web App
+```text
+users
+    uid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+items
+    itemId
+        ownerId
+        name
+        icon
+        category
+        warningLevel
+        dangerLevel
+        dailyGoal
 
-### Advanced Configuration
+logs
+    logId
+        ownerId
+        itemId
+        itemName
+        timestamp
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### iOS
 
-### `npm run build` fails to minify
+* Dashboard
+* Item Details
+* BLE Mapping
+* Statistics
+* Daily Progress
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Web
+
+* Login
+* Dashboard
+* Item Logging
+
+---
+
+## Getting Started
+
+### iOS
+
+Requirements:
+
+* Xcode 15+
+* iOS 17+
+* Firebase Project
+
+```bash
+git clone https://github.com/yourusername/HabitTracker.git
+```
+
+Add your:
+
+```text
+GoogleService-Info.plist
+```
+
+Then run the project in Xcode.
+
+---
+
+### Web
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
+
+```bash
+npm start
+```
+
+Create:
+
+```text
+src/firebase.js
+```
+
+and add your Firebase configuration.
+
+---
+
+## BLE Hardware Setup
+
+The app supports physical BLE buttons for instant logging.
+
+Example:
+
+```text
+BTN1 → Coffee
+BTN2 → Water
+BTN3 → Medication
+BTN4 → Walk
+```
+
+Pressing a physical button automatically creates a log entry in the app.
+
+---
+
+## Future Plans
+
+* Charts and analytics
+* Cloud synchronization improvements
+* Android application
+* Apple Watch companion app
+* Shared family tracking
+* Export and reporting
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Author
+
+Built by Billy Lundh.
