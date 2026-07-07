@@ -22,6 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Local Firebase configuration
+src/firebase.js
+
 # macOS
 .DS_Store
 

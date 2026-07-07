@@ -1,16 +1,14 @@
 import { initializeApp } from "firebase/app";
-
 import { getAuth } from "firebase/auth";
-
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC2h4BPTxt54zanwcPF5KrR3KqrGTo2ehs",
-  authDomain: "habittracker-9536f.firebaseapp.com",
-  projectId: "habittracker-9536f",
-  storageBucket: "habittracker-9536f.firebasestorage.app",
-  messagingSenderId: "1072336811167",
-  appId: "1:1072336811167:web:745a52bed3065352fb9eaa"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 const app = initializeApp(firebaseConfig);
