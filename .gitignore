@@ -21,3 +21,18 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# macOS
+.DS_Store
+
+# React
+habit-web/node_modules
+habit-web/.env
+
+# Xcode
+CoffeeTracker/**/xcuserdata/
+CoffeeTracker/**/DerivedData/
+CoffeeTracker/**/.DS_Store
+
+# Firebase iOS
+CoffeeTracker/**/GoogleService-Info.plist
